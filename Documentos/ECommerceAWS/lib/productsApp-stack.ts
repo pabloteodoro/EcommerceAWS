@@ -20,7 +20,7 @@ export class ProductsAppStack extends cdk.Stack {
                 sourceMap: false
             },
             environment:  {
-                PRODUCTS_DDB: this.productsDdb.tableName,
+ //                PRODUCTS_DDB: this.productsDdb.tableName,
             },
 
             timeout:  cdk.Duration.seconds(10),
