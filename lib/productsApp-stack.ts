@@ -27,7 +27,7 @@ export class ProductsAppStack extends cdk.Stack {
 
         // Lambda Layers/Products
 
-        const productsLayerArn = ssm.StringParameter.valueForStringParameter(this, "ProductsLayerArn")
+        const productsLayerArn = ssm.StringParameter.valueForStringParameter(this, "ProductsLayerVersionArn")
         const productsLayer = lambda.LayerVersion.fromLayerVersionArn(this, "ProductsLayerVersionArn", productsLayerArn)
 
 
