@@ -39,15 +39,19 @@ export class ProductsAppStack extends cdk.Stack {
             handler: "handler",
             bundling: {
                 minify: true,
-                sourceMap: false
+                sourceMap: false,
+                nodeModules: [
+                    'aws-xray-sdk-core'
+                ]
             },
             environment:  {
                PRODUCTS_DDB: this.productsDdb.tableName,
             },
 
             layers: [productsLayer],
+            tracing: lambda.Tracing.ACTIVE,
 
-            timeout:  cdk.Duration.seconds(10),
+            timeout:  cdk.Duration.seconds(2),
         })
 
         this.productsDdb.grantReadData(this.productsFetchHandler)
@@ -60,15 +64,19 @@ export class ProductsAppStack extends cdk.Stack {
             handler: "handler",
             bundling: {
                 minify: true,
-                sourceMap: false
+                sourceMap: false,
+                nodeModules: [
+                    'aws-xray-sdk-core'
+                ]
             },
             environment:  {
                PRODUCTS_DDB: this.productsDdb.tableName,
             },
 
             layers: [productsLayer],
+            tracing: lambda.Tracing.ACTIVE,
             
-            timeout:  cdk.Duration.seconds(10),
+            timeout:  cdk.Duration.seconds(2),
         })
 
         this.productsDdb.grantWriteData(this.productsAdminHandler)
