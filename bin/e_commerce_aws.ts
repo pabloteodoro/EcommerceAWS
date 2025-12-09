@@ -4,6 +4,7 @@ import 'source-map-support/register';
 import { ProductsAppStack } from '../lib/productsApp-stack';
 import { EcommerceApiStack } from '../lib/ecommerceApi-stack';
 import { ProductsAppLayersStack } from '../lib/productsAppLayers-stack';
+import { EventDdbStack } from 'lib/eventsDdb-stack';
 
 const app = new cdk.App();
 
@@ -22,12 +23,18 @@ const productsAppLayersStack = new ProductsAppLayersStack(app, 'ProductsAppLayer
   tags: tags
 });
 
+const eventDdbStack = new EventDdbStack(app, 'EventDdbStack', {
+  env: env,
+  tags: tags
+})
 const productsAppStack = new ProductsAppStack(app, 'ProductsApp', {
+  eventsDdb: eventDdbStack.table,
   env: env,
   tags: tags
 });
 
 productsAppStack.addDependency(productsAppLayersStack);
+productsAppStack.addDependency(eventDdbStack);
 
 const eCommerceApiStack = new EcommerceApiStack(app, 'EcommerceApi', {
   env: env,
