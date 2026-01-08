@@ -4,7 +4,8 @@ import 'source-map-support/register';
 import { ProductsAppStack } from '../lib/productsApp-stack';
 import { EcommerceApiStack } from '../lib/ecommerceApi-stack';
 import { ProductsAppLayersStack } from '../lib/productsAppLayers-stack';
-import { EventDdbStack } from 'lib/eventsDdb-stack';
+import { EventDdbStack } from '../lib/eventsDdb-stack';
+
 
 const app = new cdk.App();
 
