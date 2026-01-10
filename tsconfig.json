@@ -23,16 +23,17 @@
     "typeRoots": [
       "./node_modules/@types"
     ],
-    "ignoreDeprecations": "6.0",
-    "baseUrl": "./",
+    "ignoreDeprecations": "5.0",
+    "baseUrl": ".",
     "paths": {
-     "/opt/nodejs/productsLayer":[
-      "lambda/products/layers/productsLayer/nodejs/productRepository"
-     ],
-      "/opt/nodejs/productEventsLayer":[
-      "lambda/products/layers/productEventsLayer/nodejs/productEvent"
-     ]
-    }
+  "@products-layer": [
+    "lambda/layers/productsLayer/nodejs"
+  ],
+  "@product-events-layer": [
+    "lambda/layers/productEventsLayer/nodejs"
+  ]
+}
+
   },
   "exclude": [
     "node_modules",
