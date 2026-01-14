@@ -104,6 +104,6 @@ export async function handler(event: APIGatewayProxyEvent,
         return lambdaClient.invoke({
             FunctionName: productEventsFunctionName,
             Payload: JSON.stringify(event),
-            InvocationType: "RequestResponse"
+            InvocationType: "Event"
         }).promise()
     }

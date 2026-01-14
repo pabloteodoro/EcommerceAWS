@@ -31,6 +31,9 @@
   ],
   "@product-events-layer": [
     "lambda/layers/productEventsLayer/nodejs"
+  ],
+  "@orders-layer": [
+    "lambda/layers/ordersLayer/nodejs/orderRepository"
   ]
 }
 

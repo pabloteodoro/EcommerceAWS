@@ -40,7 +40,7 @@ export class ProductsAppStack extends cdk.Stack {
 
     const productsLayer = lambda.LayerVersion.fromLayerVersionArn(
       this,
-      "ProductsLayer",
+      "ProductsLayerVersionArn",
       productsLayerArn
     );
 
